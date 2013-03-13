@@ -1,6 +1,6 @@
 {
   "name": "connect-assets-hbs-helpers",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Handlebars helpers for connect-assets",
   "main": "index.coffee",
   "scripts": {
