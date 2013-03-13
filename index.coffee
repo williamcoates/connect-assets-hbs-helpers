@@ -11,5 +11,5 @@ hbs.registerHelper 'js', (path) ->
     files = [files]
   ("""<script src="#{file}" type="text/javascript"></script>""" for file in files).join('\n')
 
-hs.registerHelper 'img', (file) ->
+hbs.registerHelper 'img', (file) ->
   """<img src="#{img(file)}"/>"""
