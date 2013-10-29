@@ -17,12 +17,15 @@ hbs.registerHelper 'js', (path) ->
     files = [files]
   ("""<script src="#{file}" type="text/javascript"></script>""" for file in files).join('\n')
 
-hbs.registerHelper 'img', (file) ->
+hbs.registerHelper 'img', (file, options) ->
   throw "You must pass a path to an image" unless file
   path = safeImg(file)
+  imgOptions = options.hash
+  attributes = ("#{key}=\"#{val}\" " for key, val of imgOptions).join('')
+
   unless process.env.NODE_ENV is 'production'
     path += "?#{new Date().getTime()}"
-  """<img src="#{path}"/>"""
+  """<img src="#{path}" #{attributes}/>"""
 
 hbs.registerHelper 'imgPath', (file) ->
   path = safeImg(file)
